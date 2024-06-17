@@ -26,7 +26,7 @@ class Controller {
     constructor(service) {
         this.service = service;
     }
-    createOne = async (req, res) => {
+    createUser = async (req, res) => {
         try {
             console.log(req.body);
             const user = await this.service.createUser(req.body);
@@ -35,7 +35,7 @@ class Controller {
             res.status(400).json({ message: "Error!", error: error.message });
         }
     }
-    deleteOne = async (req, res) => {
+    deleteUser = async (req, res) => {
         try {
             await this.service.deleteUser(req.body);
             res.status(200).json({ message: "Resource deleted!" });
@@ -43,17 +43,26 @@ class Controller {
             res.status(400).json({ message: "Error!", error: error.message });
         }
     }
-    getAll = async (req, res) => {
+    getAllUsers = async (req, res) => {
         try {
 
-            const users = await this.service.getAll();
+            const users = await this.service.getAllUsers();
             return res.status(200).json({ users });
 
         } catch (error) {
             res.status(400).json({ message: "Error!", error: error.message });
         }
     }
+    getUserById = async (req, res) => {
+        try {
 
+            const user = await this.service.getUserById(req);
+            return res.status(200).json({ user });
+
+        } catch (error) {
+            res.status(400).json({ message: "Error!", error: error.message });
+        }
+    }
 
 }
 

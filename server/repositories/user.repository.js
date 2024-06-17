@@ -12,11 +12,11 @@ class UserRepository {
         });
         return user;
     }
-    async getAll() {
+    async getAllUsers() {
         const users = await this.userModel.findAll();
         return users;
     }
-    async getById(id, attributes) {
+    async getUserById(id, attributes) {
         const user = await this.userModel.findByPk(id, { attributes });
         return user;
     }

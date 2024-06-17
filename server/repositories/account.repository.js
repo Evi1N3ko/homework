@@ -11,7 +11,7 @@ class AccountRepository {
         });
         return account;
     }
-    async getById(id) {
+    async getAccountById(id) {
         const account = await this.accountModel.findByPk(id);
         return account;
     }
