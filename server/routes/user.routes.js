@@ -7,10 +7,10 @@ import controller from '../controllers/user.controller.js';
 
 import { validateRequestFields } from '../middlewares/validation.middleware.js';
 
-urlRoutes.post('/', validateRequestFields, controller.createOne);
-  urlRoutes.get('/', controller.getAll);
+urlRoutes.post('/', validateRequestFields, controller.createUser);
+  urlRoutes.get('/', controller.getAllUsers);
  // urlRoutes.put('/:id', controller.updateOneRequest);
-urlRoutes.delete('/:id', controller.deleteOne);
-  // /:id/account_details
-  // getbyid /:id
+urlRoutes.delete('/:id', controller.deleteUser);
+  // urlRoutes.get/:id/account_details
+   urlRoutes.get('/:id', controller.getUserById);
 export default urlRoutes;

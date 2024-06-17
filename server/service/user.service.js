@@ -17,9 +17,9 @@ class UserService {
         }
     };
 
-    async getById(id) {
+    async getUserById(id) {
         try {
-            const user = await this.userRepository.findByPk(id);
+            const user = await this.userRepository.getUserById(id);
             if (!user) {
                 throw new Error('User not found!')
             }
@@ -35,7 +35,7 @@ class UserService {
 
     };
 
-    async delete(id) {
+    async deleteUser(id) {
         try {
             const user = await this.userRepository.findByPk(id);
             if (!user) {
@@ -52,9 +52,20 @@ class UserService {
         }
     };
 
+    async getAllUsers() {
+        try {
+            const users = await this.userRepository.getAllUsers();
+            return users;
+        } catch (error) {
+            console.dir(error, { depth: null });
+            throw new Error('Unexprected error');
+        }
+
+    };
+
     async getAccountByUserId(userId) {
-        
-    }
+
+    };
 }
 
 export default new UserService(userRepository);
