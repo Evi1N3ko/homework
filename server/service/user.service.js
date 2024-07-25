@@ -6,9 +6,9 @@ class UserService {
         this.userRepository = userRepository;
         this.accountRepository = accountRepository;
     }
-    async createUser(data) {
+    async userRegistration(data) {
         try {
-            const user = await this.userRepository.createUser(data);
+            const user = await this.userRepository.userRegistration(data);
             delete user.password;
             return user;
         } catch (error) {

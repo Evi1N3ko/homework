@@ -19,6 +19,10 @@ const user = sequelize.define('User', {
     accountId: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    tokens: {
+        type: DataTypes.JSON,
+        allowNull: false
     }
 
 },

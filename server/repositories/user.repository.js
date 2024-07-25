@@ -1,10 +1,18 @@
 import userModel from "../db/models/user.model.js";
+import secret from "../config.js"
+
+const generateAccessToken = (id) => {
+    const payload = {
+        id
+    }
+    return jwt.sign(payload, secret)
+}
 
 class UserRepository {
     constructor(userModel) {
         this.userModel = userModel;
     }
-    async createUser(userData) {
+    async userRegistration(userData) {
         const user = await this.userModel.create({
             username: userData.username,
             password: userData.password,
@@ -12,6 +20,12 @@ class UserRepository {
         });
         return user;
     }
+
+    async userLogin(userData) {
+        const token = generateAccessToken(id)
+        return token
+    }
+
     async getAllUsers() {
         const users = await this.userModel.findAll();
         return users;

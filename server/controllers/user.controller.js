@@ -26,10 +26,10 @@ class UserController {
     constructor(service) {
         this.service = service;
     }
-    createUser = async (req, res) => {
+    userRegistration = async (req, res) => {
         try {
             console.log(req.body);
-            const user = await this.service.createUser(req.body);
+            const user = await this.service.userRegistration(req.body);
             res.status(201).json({ message: "New resource created!", user });
         } catch (error) {
             res.status(400).json({ message: "Error!", error: error.message });

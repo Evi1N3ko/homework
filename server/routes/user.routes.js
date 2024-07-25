@@ -7,7 +7,7 @@ import userController from '../controllers/user.controller.js';
 
 import { validateRequestFields } from '../middlewares/validation.middleware.js';
 
-userRouter.post('/', validateRequestFields, userController.createUser);
+userRouter.post('/', validateRequestFields, userController.userRegistration);
 userRouter.get('/', userController.getAllUsers);
 // urlRoutes.put('/:id', controller.updateOneRequest);
 userRouter.delete('/:id', userController.deleteUser);
